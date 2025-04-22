@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('relays', function (Blueprint $table) {
             $table->id();
+            $table->uuid('user_id')->constrained('users')->onDelete('cascade');
             $table->string('name');
             $table->boolean('status')->default(false);
             $table->timestamps();

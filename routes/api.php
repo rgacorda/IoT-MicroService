@@ -11,9 +11,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 //FEATURE function
-Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
-    Route::apiResource('features', FeatureController::class);
-});
+// Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+//     Route::apiResource('features', FeatureController::class);
+// });
 
 //RELAY Function
 Route::middleware(['auth:sanctum', 'permission:manage-relays'])->group(function () {
@@ -26,4 +26,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('payment', [PaymentController::class, 'paymentFeature']);
 });
 
-
+//SENSOR Function
+Route::middleware(['auth:sanctum', 'permission:manage-relays'])->group(function () {
+    Route::apiResource('relays', RelayController::class);
+    Route::patch('relays/{relay}/toggle', [RelayController::class, 'toggle']);
+});

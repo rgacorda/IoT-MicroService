@@ -8,5 +8,6 @@ class Feature extends Model
 {
     protected $fillable = [
         'name',
+        'permission_name',
     ];
 }

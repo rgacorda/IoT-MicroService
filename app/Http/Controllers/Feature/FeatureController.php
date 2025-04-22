@@ -22,6 +22,7 @@ class FeatureController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'permission_name' => ['required', 'string', 'max:255'],
         ]);
 
         return Feature::create($validated);
@@ -42,6 +43,7 @@ class FeatureController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'permission_name' => ['required', 'string', 'max:255'],
         ]);
 
         $feature->update($validated);
