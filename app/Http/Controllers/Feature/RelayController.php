@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Feature;
 use App\Http\Controllers\Controller;
 use App\Models\Relay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RelayController extends Controller
 {
@@ -13,7 +14,7 @@ class RelayController extends Controller
      */
     public function index()
     {
-        return Relay::all();
+        return Relay::where('user_id', Auth::user()->id)->get();
     }
 
     /**
